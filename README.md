@@ -7,11 +7,11 @@ and collects the data in an excel sheet for later reference.
 ## How to Run the script:
 
 Python Packages to be installed:
-  >>> yum install python-setuptools
-  >>> easy_install pip
-  >>> pip install xlwt
-  >>> pip install xlrd
-  >>> pip install xlutils
+  - yum install python-setuptools
+  - easy_install pip
+  - pip install xlwt
+  - pip install xlrd
+  - pip install xlutils
 
   >>> bash-4.3$ python system_monitor.py -p "systemd glusterfsd glusterd" -o "/tmp/monitor.xlsx"
 
@@ -27,5 +27,8 @@ optional arguments:
     -i I        Time Interval(in seconds) to take samples
 
 The script will get executed and collects data until the user termintaes it.
-Note: If you try to monitor different process in the subsequent runs,
+
+##Note: 
+
+If you try to monitor different process in the subsequent runs,
 then collect the data in new output file. 
