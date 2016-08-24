@@ -28,6 +28,11 @@ Python Packages to be installed:
 
 The script will get executed and collects data until the user termintaes it.
 
-##Note: 
+## Note: 
 
 The data will get collected in excel sheet unitl user terminates the script. If you try to monitor different process in the subsequent runs, then collect the data in new output file. 
+
+## Future Enhancements:
+
+The plan is to plot graphs automatically with the data collected in excel sheet.
+
