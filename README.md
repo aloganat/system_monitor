@@ -1,4 +1,4 @@
-# system_monitor
+# Description
 
 This script will be used to monitor cpu, memory usage of the
 processes and load average of the system in regular intervals of time
@@ -15,10 +15,11 @@ Python Packages to be installed:
 
   >>> bash-4.3$ python system_monitor.py -p "systemd glusterfsd glusterd" -o "/tmp/monitor.xlsx"
 
-  >>> bash-4.3$ python system_monitor.py --help
-usage: system monitoring [-h] -p P -o O -i I
+## Usage:
+  -bash-4.3$ python system_monitor.py --help
+             usage: system monitoring [-h] -p P -o O -i I
 
-collects cpu,mem usage and load average of system
+             collects cpu,mem usage and load average of system
 
 optional arguments:
     -h, --help  show this help message and exit
