@@ -13,7 +13,7 @@ Python Packages to be installed:
   - pip install xlrd
   - pip install xlutils
 
-      python system_monitor.py -p "systemd glusterfsd glusterd" -o "/tmp/monitor.xlsx"
+             python system_monitor.py -p "systemd glusterfsd glusterd" -o "/tmp/monitor.xlsx"
 
 ## Usage:
   python system_monitor.py --help
@@ -30,5 +30,4 @@ The script will get executed and collects data until the user termintaes it.
 
 ##Note: 
 
-If you try to monitor different process in the subsequent runs,
-then collect the data in new output file. 
+The data will get collected in excel sheet unitl user terminates the script. If you try to monitor different process in the subsequent runs, then collect the data in new output file. 
