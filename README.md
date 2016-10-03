@@ -2,37 +2,82 @@
 
 This script will be used to monitor cpu, memory usage of the
 processes and load average of the system in regular intervals of time
-and collects the data in an excel sheet for later reference.
+and collects the data in an excel sheet for later reference and
+draws chart with the system monitor data.
 
-## How to Run the script:
+## How to Use system_monitor:
 
 Python Packages to be installed:
   - yum install python-setuptools
   - easy_install pip
-  - pip install xlwt
-  - pip install xlrd
-  - pip install xlutils
+  - pip install pandas
 
-             python system_monitor.py -p "systemd glusterfsd glusterd" -o "/tmp/monitor.xlsx"
+## Installing system_monitor directly Git via pip
+
+             pip install --upgrade git+git://github.com/aloganat/system_monitor.git
+
+## Uninstalling system_monitor
+
+             pip uninstall system_monitor
 
 ## Usage:
-  python system_monitor.py --help
-  
-             usage: system monitoring [-h] -p P -o O -i I
-             collects cpu,mem usage and load average of system
+  system_monitor -h
+             usage: system monitoring [-h] {system_monitor,draw_chart} ...
+             Tool for monitoring system
+             optional arguments:
+                 -h, --help            show this help message and exit
+
+             Available sub commands:
+             {system_monitor,draw_chart}
+                        sub-command help
+             system_monitor      collects cpu, mem usage and load average of system.
+             draw_chart          draws chart with system monitor data.
+
+
+  system_monitor system_monitor -h
+             usage: system monitoring system_monitor [-h] [-p P] [-o O] [-i I]
              optional arguments:
              -h, --help  show this help message and exit
-             -p P        Process names
-             -o O        Output file name for collecting data
-             -i I        Time Interval(in seconds) to take samples
 
-The script will get executed and collects data until the user termintaes it.
+             required named arguments:
+             -p P        Process names (default: None)
+             -o O        Output file name for collecting data (default: None)
+             -i I        Time Interval(in seconds) to take samples (default: None)
 
+
+  system_monitor draw_chart -h
+             usage: system monitoring draw_chart [-h] [--files-to-compare file_names]
+                                    [--process_name process_name]
+                                    [--field-name field_name]
+                                    [--chart-type chart_type] [-o O] [-i I]
+
+             optional arguments:
+             -h, --help            show this help message and exit
+             --chart-type chart_type
+                        Type of chart to plot Chart type can be line or column
+                        (default: line)
+
+             required named arguments:
+             --files-to-compare file_names
+                        Excel files to compare (default: None)
+             --process_name process_name
+                        Process name to draw chart (default: None)
+             --field-name field_name
+                        Field name to compare. Field name can be memory, cpu,
+                        loadavg1x, loadavg5x, loadavg15x (default: None)
+             -o O       Output file name for drawing chart (default: None)
+             -i I       Time Interval(in seconds) to take samples (default:
+                        None)
+
+## Example:
+             system_monitor system_monitor -p "systemd glusterfsd glusterd" -o "/tmp/node_1.xlsx" -i 5
+             python system_monitor.py draw_chart --files-to-compare "/tmp/node_1.xlsx /tmp/node_2.xlsx" --process_name "glusterd" --field-name "loadavg1x" -o "/tmp/chart.xlsx" -i 5
 ## Note: 
 
-The data will get collected in excel sheet unitl user terminates the script. If you try to monitor different process in the subsequent runs, then collect the data in new output file. 
+With system_monitor option, the data will get collected in excel sheet unitl user terminates the script. If you try to monitor different process in the subsequent runs, then collect the data in new output file. 
 
 ## Future Enhancements:
 
-The plan is to plot graphs automatically with the data collected in excel sheet.
+Adding error handling if process names are not found in system.
+Feedbacks are welcome.
 
