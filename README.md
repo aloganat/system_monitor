@@ -5,7 +5,7 @@ processes and load average of the system in regular intervals of time
 and collects the data in an excel sheet for later reference and
 draws chart with the system monitor data.
 
-## How to Use system_monitor:
+## Python packages to be installed:
 
 Python Packages to be installed:
   - yum install python-setuptools
@@ -22,6 +22,7 @@ Python Packages to be installed:
 
 ## Usage:
   system_monitor -h
+
              usage: system monitoring [-h] {system_monitor,draw_chart} ...
              Tool for monitoring system
              optional arguments:
@@ -35,6 +36,7 @@ Python Packages to be installed:
 
 
   system_monitor system_monitor -h
+
              usage: system monitoring system_monitor [-h] [-p P] [-o O] [-i I]
              optional arguments:
              -h, --help  show this help message and exit
@@ -46,6 +48,7 @@ Python Packages to be installed:
 
 
   system_monitor draw_chart -h
+
              usage: system monitoring draw_chart [-h] [--files-to-compare file_names]
                                     [--process_name process_name]
                                     [--field-name field_name]
@@ -78,6 +81,6 @@ With system_monitor option, the data will get collected in excel sheet unitl use
 
 ## Future Enhancements:
 
-Adding error handling if process names are not found in system.
-Feedbacks are welcome.
+  - Adding error handling if process names are not found in system.
+  - Feedbacks are welcome.
 
