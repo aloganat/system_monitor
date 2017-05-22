@@ -11,6 +11,7 @@ Python Packages to be installed:
   - yum install python-setuptools
   - easy_install pip
   - pip install pandas
+  - pip install xlsxwriter
 
 ## Installing system_monitor directly Git via pip
 
@@ -74,7 +75,7 @@ Python Packages to be installed:
 
 ## Example:
              system_monitor system_monitor -p "systemd glusterfsd glusterd" -o "/tmp/node_1.xlsx" -i 5
-             python system_monitor.py draw_chart --files-to-compare "/tmp/node_1.xlsx /tmp/node_2.xlsx" --process_name "glusterd" --field-name "loadavg1x" -o "/tmp/chart.xlsx" -i 5
+             system_monitor draw_chart --files-to-compare "/tmp/node_1.xlsx /tmp/node_2.xlsx" --process_name "glusterd" --field-name "loadavg1x" -o "/tmp/chart.xlsx" -i 5
 ## Note: 
 
 With system_monitor option, the data will get collected in excel sheet unitl user terminates the script. If you try to monitor different process in the subsequent runs, then collect the data in new output file. 
