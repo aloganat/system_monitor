@@ -104,6 +104,7 @@ def parse_top_output(output,book,proclist):
     try:
         allProcInfo=[]
         load_avg = getGlobalData(output)
+        output = [re.sub("(.*\s)\S+", "\\1" + proclist[-1], w) for w in output if w.endswith("+")]
         for i in reversed(output):
             procInfo=[shlex.split(re.sub('[\+\-]','',i)) for x in proclist if x in i]
             for p in procInfo:
